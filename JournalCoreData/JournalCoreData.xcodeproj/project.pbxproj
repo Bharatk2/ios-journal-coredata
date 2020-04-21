@@ -18,6 +18,7 @@
 		3F38DC02244E36F500C01DD5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38DC01244E36F500C01DD5 /* CoreDataStack.swift */; };
 		3F38DC04244E370C00C01DD5 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38DC03244E370C00C01DD5 /* Entry+Convenience.swift */; };
 		3F38DC07244E372000C01DD5 /* Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F38DC05244E372000C01DD5 /* Journal.xcdatamodeld */; };
+		3F9E4DB9244F91C400019615 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E4DB8244F91C400019615 /* EntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		3F38DC03244E370C00C01DD5 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		3F38DC06244E372000C01DD5 /* Journal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Journal.xcdatamodel; sourceTree = "<group>"; };
 		3F9E4DB7244F8E0C00019615 /* Journal 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Journal 2.xcdatamodel"; sourceTree = "<group>"; };
+		3F9E4DB8244F91C400019615 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		3F9E4DB1244F439600019615 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F9E4DB8244F91C400019615 /* EntryController.swift */,
 				3F38DC01244E36F500C01DD5 /* CoreDataStack.swift */,
 				3F38DC05244E372000C01DD5 /* Journal.xcdatamodeld */,
 				3F38DC03244E370C00C01DD5 /* Entry+Convenience.swift */,
@@ -205,6 +208,7 @@
 				3F38DBFE244E36C200C01DD5 /* EntriesTableViewController.swift in Sources */,
 				3F38DC00244E36DE00C01DD5 /* EntryTableViewCell.swift in Sources */,
 				3F38DBEE244E364F00C01DD5 /* CreateEntryViewController.swift in Sources */,
+				3F9E4DB9244F91C400019615 /* EntryController.swift in Sources */,
 				3F38DC02244E36F500C01DD5 /* CoreDataStack.swift in Sources */,
 				3F38DBEA244E364F00C01DD5 /* AppDelegate.swift in Sources */,
 				3F38DBEC244E364F00C01DD5 /* SceneDelegate.swift in Sources */,
