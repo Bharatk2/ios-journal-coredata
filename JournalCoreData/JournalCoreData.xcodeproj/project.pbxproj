@@ -415,7 +415,7 @@
 				3F9E4DB7244F8E0C00019615 /* Journal 2.xcdatamodel */,
 				3F38DC06244E372000C01DD5 /* Journal.xcdatamodel */,
 			);
-			currentVersion = 3F38DC06244E372000C01DD5 /* Journal.xcdatamodel */;
+			currentVersion = 3F9E4DB7244F8E0C00019615 /* Journal 2.xcdatamodel */;
 			path = Journal.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
