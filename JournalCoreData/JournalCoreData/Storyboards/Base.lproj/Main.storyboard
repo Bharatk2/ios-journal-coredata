@@ -114,7 +114,6 @@
                                             <segment title="🙁"/>
                                             <segment title="😐"/>
                                             <segment title="🙂"/>
-                                            <segment title="😀"/>
                                         </segments>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MNq-3T-h9p">
