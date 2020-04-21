@@ -10,6 +10,10 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
 
+    @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var journyTitle: UITextField!
+    @IBOutlet weak var notesTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

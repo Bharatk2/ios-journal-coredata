@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="1198.5507246376812" y="-449.33035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry Detail View Controller-->
         <scene sceneID="SCM-2T-qf7">
             <objects>
-                <viewController id="z3I-sJ-9ys" sceneMemberID="viewController">
+                <viewController id="z3I-sJ-9ys" customClass="EntryDetailViewController" customModule="JournalCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBg-xM-Uxd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +235,11 @@
                         <viewLayoutGuide key="safeArea" id="H2E-N6-Pcf"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qa7-VW-KE0"/>
+                    <connections>
+                        <outlet property="journyTitle" destination="qtJ-00-F4R" id="IHE-uG-aQY"/>
+                        <outlet property="moodSegmentedControl" destination="6hR-55-aiP" id="k61-HP-5ye"/>
+                        <outlet property="notesTextView" destination="Nse-dd-JIW" id="4dS-NP-HuP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQX-3N-nqW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
