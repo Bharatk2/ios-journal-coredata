@@ -108,26 +108,35 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iaL-AF-M1k">
                                 <rect key="frame" x="20" y="160" width="374" height="374"/>
                                 <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EeV-LV-gWw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="🙁"/>
+                                            <segment title="😐"/>
+                                            <segment title="🙂"/>
+                                            <segment title="😀"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MNq-3T-h9p">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="39" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtB-dg-fH9">
-                                        <rect key="frame" x="0.0" y="42" width="374" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="81" width="374" height="14.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fy-Pn-emi">
-                                        <rect key="frame" x="0.0" y="64.5" width="374" height="2"/>
+                                        <rect key="frame" x="0.0" y="103.5" width="374" height="2"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="RjL-sv-zVt"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U5E-9S-ezh">
-                                        <rect key="frame" x="0.0" y="74.5" width="374" height="299.5"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="374" height="260.5"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
