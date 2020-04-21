@@ -10,6 +10,7 @@ import UIKit
 
 class CreateEntryViewController: UIViewController {
 
+    var entryController: EntryController?
     @IBOutlet weak var moodControl: UISegmentedControl!
     @IBOutlet weak var entryTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -28,6 +29,8 @@ class CreateEntryViewController: UIViewController {
             let bodyText = descriptionTextView.text, !bodyText.isEmpty else {
                 return
         }
+        
+        guard let entryController = entryController else { return }
         
         Entry(title: title, bodyText: bodyText, timeStamp: Date(), context: CoreDataStack.shared.mainContext)
         
