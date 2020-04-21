@@ -10,16 +10,37 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
 
+    var entry: Entry?
+     var wasEdited = false
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     @IBOutlet weak var journyTitle: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.rightBarButtonItem = editButtonItem
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
+    private func updateViews() {
+        journyTitle.text = entry?.title
+        journyTitle.isUserInteractionEnabled = isEditing
+        
+        notesTextView.text = entry?.bodyText
+        notesTextView.isUserInteractionEnabled = isEditing
+        
+        let mood: EntryMood
+        
+        if let entryMood = entry?.mood {
+            mood = EntryMood(rawValue: entryMood)!
+        } else {
+            mood = .neutral
+        }
+        moodSegmentedControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: mood) ?? 1
+        moodSegmentedControl.isUserInteractionEnabled = isEditing
+        
+    }
 
     /*
     // MARK: - Navigation
