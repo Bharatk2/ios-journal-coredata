@@ -10,6 +10,7 @@ import UIKit
 
 class CreateEntryViewController: UIViewController {
 
+    @IBOutlet weak var moodControl: UISegmentedControl!
     @IBOutlet weak var entryTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
