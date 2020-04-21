@@ -10,6 +10,7 @@ import UIKit
 
 class CreateEntryViewController: UIViewController {
 
+    var entry: Entry?
     var entryController: EntryController?
     @IBOutlet weak var moodControl: UISegmentedControl!
     @IBOutlet weak var entryTextField: UITextField!
@@ -17,6 +18,7 @@ class CreateEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        entryTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     @IBAction func cancel(_ sender: Any) {
@@ -29,11 +31,16 @@ class CreateEntryViewController: UIViewController {
             let bodyText = descriptionTextView.text, !bodyText.isEmpty else {
                 return
         }
-        
-        guard let entryController = entryController else { return }
-        
-        Entry(title: title, bodyText: bodyText, timeStamp: Date(), context: CoreDataStack.shared.mainContext)
-        
+        let mood: EntryMood
+                  
+        if let entryMood = entry?.mood {
+                      mood = EntryMood(rawValue: entryMood)!
+                  } else {
+                      mood = .neutral
+                  }
+           moodControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: mood) ?? 1
+    
+        Entry(title: title, bodyText: bodyText, timeStamp: Date(), mood: mood.rawValue, context: CoreDataStack.shared.mainContext)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
@@ -43,6 +50,7 @@ class CreateEntryViewController: UIViewController {
         navigationController?.dismiss(animated: true, completion: nil)
         
     }
+
     
 }
 

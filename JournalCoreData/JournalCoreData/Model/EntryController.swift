@@ -21,7 +21,7 @@ class EntryController {
     }
 
     
-    func createEntry(identifier: UUID, title: String, bodyText: String, timeStamp: Date, mood: EntryMood = .sad) -> Entry {
+    func createEntry(identifier: UUID, title: String, bodyText: String, timeStamp: Date, mood: String) -> Entry {
          
         let newEntry = Entry(identifier: UUID(), title: title, bodyText: bodyText, timeStamp: timeStamp, mood: mood, context: CoreDataStack.shared.mainContext)
          return newEntry
