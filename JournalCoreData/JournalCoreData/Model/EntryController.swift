@@ -33,8 +33,34 @@ class EntryController {
         request.httpMethod = HTTPMethod.put.rawValue
         
         do {
-            guard let representation = entry.en
+            guard let representation = entry.entryRepresentation else {
+                completion(.failure(.noRep))
+                return
+            }
+            request.httpBody = try JSONEncoder().encode(representation)
+            
+        } catch {
+            NSLog("Error encoding \(entry): \(error)")
+            completion(.failure(.noEncode))
+            return
         }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                NSLog("Error in getting data: \(error)")
+                completion(.failure(.noData))
+            }
+            
+//            MARK: - Data handeling
+            
+            
+            
+            
+//            MARK: - Response handeling
+            
+            
+            completion(.success(true))
+        }.resume()
         
     }
 }

@@ -30,6 +30,7 @@ extension Entry {
    @discardableResult convenience init(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)
+    self.identifier = UUID(uuidString: entryRepresentation.identifier)
         self.title = entryRepresentation.title
         self.bodyText = entryRepresentation.bodyText
         self.timeStamp = entryRepresentation.timeStamp
