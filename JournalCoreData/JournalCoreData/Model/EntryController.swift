@@ -51,16 +51,44 @@ class EntryController {
                 completion(.failure(.noData))
             }
             
-//            MARK: - Data handeling
+            //            MARK: - Data handeling
             
             
             
             
-//            MARK: - Response handeling
+            //            MARK: - Response handeling
             
             
             completion(.success(true))
         }.resume()
         
+    }
+    
+    func deleteEntryFromServe(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
+        guard let uuid = entry.identifier else {
+            completion(.failure(.noIdentifier))
+            return
+        }
+        
+        let requestURL = fireBase.baseURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                NSLog("Error in getting data: \(error)")
+                completion(.failure(.noData))
+            }
+            
+            //            MARK: - Data handling
+            
+            
+            
+            
+            //            MARK: - Response handling
+            
+            
+            completion(.success(true))
+        }.resume()
     }
 }

@@ -23,6 +23,37 @@ class EntryDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if wasEdited {
+            guard let title = journyTitle.text,
+                let entry = entry else {
+                    return
+            }
+            let notes = notesTextView.text
+            entry.title = title
+            entry.bodyText = notes
+            let entryPriority = moodSegmentedControl.selectedSegmentIndex
+            entry.mood = EntryMood.allCases[entryPriority].rawValue
+            do {
+                try CoreDataStack.shared.mainContext.save()
+            } catch {
+                NSLog("Error saving managed object context: \(error)")
+            }
+        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing { wasEdited = true }
+        journyTitle.isUserInteractionEnabled = editing
+        notesTextView.isUserInteractionEnabled = editing
+        moodSegmentedControl.isUserInteractionEnabled = editing
+        
+        navigationItem.hidesBackButton = editing
+    }
+    
     private func updateViews() {
         journyTitle.text = entry?.title
         journyTitle.isUserInteractionEnabled = isEditing
