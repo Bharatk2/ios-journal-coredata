@@ -19,6 +19,7 @@
 		3F38DC04244E370C00C01DD5 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38DC03244E370C00C01DD5 /* Entry+Convenience.swift */; };
 		3F38DC07244E372000C01DD5 /* Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F38DC05244E372000C01DD5 /* Journal.xcdatamodeld */; };
 		3F8B53192450E17200142802 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B53182450E17200142802 /* EntryRepresentation.swift */; };
+		3F8B531C2450EBDF00142802 /* FirebaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B531B2450EBDF00142802 /* FirebaseURL.swift */; };
 		3F9E4DB9244F91C400019615 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E4DB8244F91C400019615 /* EntryController.swift */; };
 		3F9E4DBB244F95AB00019615 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E4DBA244F95AB00019615 /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		3F38DC03244E370C00C01DD5 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		3F38DC06244E372000C01DD5 /* Journal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Journal.xcdatamodel; sourceTree = "<group>"; };
 		3F8B53182450E17200142802 /* EntryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepresentation.swift; sourceTree = "<group>"; };
+		3F8B531B2450EBDF00142802 /* FirebaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseURL.swift; sourceTree = "<group>"; };
 		3F9E4DB7244F8E0C00019615 /* Journal 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Journal 2.xcdatamodel"; sourceTree = "<group>"; };
 		3F9E4DB8244F91C400019615 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		3F9E4DBA244F95AB00019615 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		3F38DBE8244E364F00C01DD5 /* JournalCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3F8B531A2450EBC500142802 /* FirebaseURL */,
 				3F9E4DB0244F437D00019615 /* Application */,
 				3F9E4DAE244F436000019615 /* ViewControllers */,
 				3F9E4DAF244F437300019615 /* Views */,
@@ -81,6 +84,14 @@
 				3F9E4DB3244F43C400019615 /* Resources */,
 			);
 			path = JournalCoreData;
+			sourceTree = "<group>";
+		};
+		3F8B531A2450EBC500142802 /* FirebaseURL */ = {
+			isa = PBXGroup;
+			children = (
+				3F8B531B2450EBDF00142802 /* FirebaseURL.swift */,
+			);
+			path = FirebaseURL;
 			sourceTree = "<group>";
 		};
 		3F9E4DAE244F436000019615 /* ViewControllers */ = {
@@ -215,6 +226,7 @@
 				3F38DC00244E36DE00C01DD5 /* EntryTableViewCell.swift in Sources */,
 				3F38DBEE244E364F00C01DD5 /* CreateEntryViewController.swift in Sources */,
 				3F9E4DB9244F91C400019615 /* EntryController.swift in Sources */,
+				3F8B531C2450EBDF00142802 /* FirebaseURL.swift in Sources */,
 				3F38DC02244E36F500C01DD5 /* CoreDataStack.swift in Sources */,
 				3F38DBEA244E364F00C01DD5 /* AppDelegate.swift in Sources */,
 				3F38DBEC244E364F00C01DD5 /* SceneDelegate.swift in Sources */,

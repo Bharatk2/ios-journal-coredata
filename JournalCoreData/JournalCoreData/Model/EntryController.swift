@@ -1,43 +1,40 @@
-////
-////  EntryController.swift
-////  JournalCoreData
-////
-////  Created by Bhawnish Kumar on 4/21/20.
-////  Copyright © 2020 Bhawnish Kumar. All rights reserved.
-////
 //
-//import Foundation
+//  EntryController.swift
+//  JournalCoreData
 //
-//class EntryController {
-//    
-//    func saveToPersistentStore() {
-//        
-//        do {
-//            try CoreDataStack.shared.mainContext.save() // has to see with books array.
-//            
-//        } catch {
-//            NSLog("error saving managed obejct context: \(error)")
-//        }
-//    }
-//
-//    
-//    func createEntry(identifier: UUID, title: String, bodyText: String, timeStamp: Date, mood: String) -> Entry {
-//         
-//        let newEntry = Entry(identifier: UUID(), title: title, bodyText: bodyText, timeStamp: timeStamp, mood: mood, context: CoreDataStack.shared.mainContext)
-//         return newEntry
-//     }
-//     
-//     func updateEntry(entryTitle: String, bodyText: String, entry: Entry, mood: String) {
-//         entry.title = entryTitle
-//         entry.bodyText = bodyText
-//         entry.timeStamp = Date()
-//         entry.mood = mood
-//         saveToPersistentStore()
-//        
-//     }
-//     
-//     func deleteEntry(entry: Entry) {
-//         CoreDataStack.shared.mainContext.delete(entry)
-//         saveToPersistentStore()
-//     }
-//}
+//  Created by Bhawnish Kumar on 4/21/20.
+//  Copyright © 2020 Bhawnish Kumar. All rights reserved.
+
+
+import Foundation
+import CoreData
+
+enum NetworkError: Error {
+    case noIdentifier, otherError, noData, noDecode, noEncode, noRep
+}
+enum HTTPMethod: String {
+    case put = "PUT"
+    case delete = "DELETE"
+}
+class EntryController {
+    
+    typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
+    
+    var fireBase: FireBaseURL = FireBaseURL()
+    
+    func sendEntryToServer(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
+        guard let uuid = entry.identifier else {
+            completion(.failure(.noIdentifier))
+            return
+        }
+        
+        let requestURL = fireBase.baseURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.put.rawValue
+        
+        do {
+            guard let representation = entry.en
+        }
+        
+    }
+}

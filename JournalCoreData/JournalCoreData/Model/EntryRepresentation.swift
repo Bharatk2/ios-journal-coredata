@@ -9,7 +9,7 @@
 import Foundation
 
 struct EntryRepresentation: Codable {
-    var identifier: UUID
+    var identifier: String
     var title: String
     var bodyText: String?
     var mood: String
