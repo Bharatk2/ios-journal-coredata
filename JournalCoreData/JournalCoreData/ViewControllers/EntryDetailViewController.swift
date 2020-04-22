@@ -39,7 +39,7 @@ class EntryDetailViewController: UIViewController {
         }
         moodSegmentedControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: mood) ?? 1
         moodSegmentedControl.isUserInteractionEnabled = isEditing
-        
+        //part3
     }
 
 
