@@ -86,6 +86,7 @@ class EntriesTableViewController: UITableViewController {
                 guard let _ = try? result.get() else {
                     return
                 }
+                CoreDataStack.shared.mainContext.delete(entry)
                 do {
                     try CoreDataStack.shared.mainContext.save()
                 } catch {
