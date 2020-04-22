@@ -16,9 +16,26 @@ enum EntryMood: String, CaseIterable {
 }
 extension Entry {
     
+    
+    
+
+    convenience init(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+                           self.init(context: context)
+        self.identifier = entryRepresentation.identifier
+        self.title = entryRepresentation.title
+        self.bodyText = entryRepresentation.bodyText
+        self.timeStamp = entryRepresentation.timeStamp
+        self.mood = entryRepresentation.mood
+                       }
+               
+    
+
+           
+           
     @discardableResult convenience init(identifier: UUID = UUID(),
                      title: String,
-                     bodyText: String,
+                     bodyText: String?,
                      timeStamp: Date,
                      mood: EntryMood = .neutral,
                      context: NSManagedObjectContext) {
