@@ -73,7 +73,7 @@
                     <navigationItem key="navigationItem" title="Journal" id="JVP-1P-MiQ">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="dDE-zk-UJU">
                             <connections>
-                                <segue destination="khu-Zh-Qc4" kind="presentation" modalPresentationStyle="fullScreen" id="Qal-iS-2f9"/>
+                                <segue destination="khu-Zh-Qc4" kind="presentation" identifier="CreateEntryModal" modalPresentationStyle="fullScreen" id="Qal-iS-2f9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
