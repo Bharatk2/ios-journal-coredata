@@ -86,12 +86,15 @@ class EntriesTableViewController: UITableViewController {
                 guard let _ = try? result.get() else {
                     return
                 }
-                CoreDataStack.shared.mainContext.delete(entry)
+                DispatchQueue.main.async {
+                    CoreDataStack.shared.mainContext.delete(entry)
+                
                 do {
                     try CoreDataStack.shared.mainContext.save()
                 } catch {
                     CoreDataStack.shared.mainContext.reset()
                     NSLog("Error saving object : \(error)")
+                }
                 }
             }
         }
@@ -122,6 +125,7 @@ class EntriesTableViewController: UITableViewController {
             if let detailVC = segue.destination as? EntryDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.entry = fetchedResultsController.object(at: indexPath)
+                detailVC.entryController = entryController
             }
         } else if segue.identifier == "CreateEntryModal" {
             if let navC = segue.destination as? UINavigationController,

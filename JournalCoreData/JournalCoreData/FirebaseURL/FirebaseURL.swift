@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+  
 struct FireBaseURL {
-    let baseURL = URL(fileURLWithPath: "https://journalcore-3661a.firebaseio.com/")
+    let baseURL = URL(string: "https://journalcore-3661a.firebaseio.com/")!
 }

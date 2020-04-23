@@ -16,6 +16,7 @@ enum HTTPMethod: String {
     case put = "PUT"
     case delete = "DELETE"
 }
+
 class EntryController {
     
     init() {
@@ -136,6 +137,8 @@ class EntryController {
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
         
         let context = CoreDataStack.shared.container.newBackgroundContext()
+        context.perform {
+            
         do {
             let existingEntries = try context.fetch(fetchRequest)
                        
@@ -151,6 +154,7 @@ class EntryController {
            try context.save()
         } catch {
            NSLog("Error fetching entry with uUIDs: \(identifiersToFetch), with error: \(error)")
+        }
         }
     }
 }
