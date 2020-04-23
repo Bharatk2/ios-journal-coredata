@@ -22,6 +22,8 @@ class EntryController {
     
     var fireBase: FireBaseURL = FireBaseURL()
     
+
+    
     func sendEntryToServer(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
         guard let uuid = entry.identifier else {
             completion(.failure(.noIdentifier))
@@ -90,5 +92,12 @@ class EntryController {
             
             completion(.success(true))
         }.resume()
+    }
+    
+    private func update(entry: Entry, with representation: EntryRepresentation) {
+        entry.title = representation.title
+        entry.bodyText = representation.bodyText
+        entry.timeStamp = representation.timeStamp
+        entry.mood = representation.mood
     }
 }
