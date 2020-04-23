@@ -100,4 +100,30 @@ class EntryController {
         entry.timeStamp = representation.timeStamp
         entry.mood = representation.mood
     }
+    private func updateEntries(with representations: [EntryRepresentation]) throws {
+        let identifiersToFetch = representations.compactMap { UUID(uuidString: $0.identifier) }
+        let representationByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
+        var entryToCreate = representationByID
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
+        
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        do {
+            let existingEntries = try context.fetch(fetchRequest)
+                       
+                       for entry in existingEntries {
+                           guard let id = entry.identifier,
+                               let representation = representationByID[id] else { continue }
+                           self.update(entry: entry, with: representation)
+                        entryToCreate.removeValue(forKey: id)
+                       }
+            for representation in entryToCreate.values {
+                Entry(entryRepresentation: representation, context: context)
+            }
+           try context.save()
+        } catch {
+           NSLog("Error fetching entry with uUIDs: \(identifiersToFetch), with error: \(error)")
+        }
+    }
 }
