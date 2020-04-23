@@ -18,11 +18,37 @@ enum HTTPMethod: String {
 }
 class EntryController {
     
+    init() {
+        fetchEntryFromServer()
+    }
+    
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     var fireBase: FireBaseURL = FireBaseURL()
     
-
+    func fetchEntryFromServer(completion: @escaping CompletionHandler = {_ in}) {
+        let requestURL = fireBase.baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { data, response, error in
+            if let error = error {
+                NSLog("Unable to fetch entry: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            guard let data = data else {
+                NSLog("No data to return from fetch")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let entryRepresentation = Array(try JSONDecoder().decode([String : EntryRepresentation].self, from: data).values)
+                try self.updateEntries(with: entryRepresentation)
+                completion(.success(true))
+            } catch {
+                NSLog("Error decoding tasks from server: \(error)")
+            }
+        }.resume()
+    }
     
     func sendEntryToServer(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
         guard let uuid = entry.identifier else {
@@ -100,6 +126,7 @@ class EntryController {
         entry.timeStamp = representation.timeStamp
         entry.mood = representation.mood
     }
+    
     private func updateEntries(with representations: [EntryRepresentation]) throws {
         let identifiersToFetch = representations.compactMap { UUID(uuidString: $0.identifier) }
         let representationByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
