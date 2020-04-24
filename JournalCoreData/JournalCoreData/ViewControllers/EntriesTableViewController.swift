@@ -11,6 +11,11 @@ import CoreData
 
 class EntriesTableViewController: UITableViewController {
     
+    
+    
+    
+    
+    
     var entryController = EntryController()
     //    var entries: [Entry]  {
     //        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -36,6 +41,14 @@ class EntriesTableViewController: UITableViewController {
         return frc
         
     }()
+    
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        entryController.fetchEntryFromServer { _ in
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
